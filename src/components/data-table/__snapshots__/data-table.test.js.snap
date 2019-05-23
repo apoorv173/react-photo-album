@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data table  comnponent Should render the data table 1`] = `ShallowWrapper {}`;
+
+exports[`Data table  comnponent Should render the modal window with both the buttons disabled 1`] = `ShallowWrapper {}`;

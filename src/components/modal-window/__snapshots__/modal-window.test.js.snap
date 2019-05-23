@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal window component Component Should render the modal window 1`] = `ShallowWrapper {}`;
+
+exports[`Photo List Component Should render the modal window 1`] = `ShallowWrapper {}`;

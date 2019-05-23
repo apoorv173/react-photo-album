@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Photo List Component Should render albums with user data 1`] = `ShallowWrapper {}`;
+
+exports[`Photo List Component Should render photos with user data 1`] = `ShallowWrapper {}`;

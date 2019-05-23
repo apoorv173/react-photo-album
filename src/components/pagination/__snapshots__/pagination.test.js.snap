@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination comnponent Should render the Pagination with both the buttons disabled 1`] = `ShallowWrapper {}`;
+
+exports[`Pagination comnponent Should render the Pagination with both the buttons enabled 1`] = `ShallowWrapper {}`;
+
+exports[`Pagination comnponent Should render the modal window with both the buttons disabled 1`] = `ShallowWrapper {}`;
+
+exports[`Pagination comnponent Should render the modal window with both the buttons enabled 1`] = `ShallowWrapper {}`;

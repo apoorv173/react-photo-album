@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Album List Component Should render albums with user data 1`] = `ShallowWrapper {}`;
