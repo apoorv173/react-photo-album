@@ -126,3 +126,24 @@ Documentation is all included in the readme files with screenshot of the app.
 
 
 ![Unit test coverage](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/test-cases.png)
+
+##Manual BDD tests executed:
+
+1.) ON size change the page count should reset for that current url
+
+2.) the page and the size numbers are appended in the url for both album and photo pages???
+
+3.) back navigation
+
+4.) no results found after 100 results
+
+5.) Loading scenarios
+
+6.) Image description
+
+
+##Todos
+
+User page with the complete user information
+
+Add redux sagas to it, instead of thunk
