@@ -122,8 +122,7 @@ Documentation is all included in the readme files with screenshot of the app.
 ![modal design on desktop](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/modal-desktop.png)
 ![Modal design on mobile](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/modal-mobile.png)
 
-![Loading png](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/loading.png)
-![Loading gif](https://github.com/apoorv173/react-photo-album/tree/master/src/assets/loader.gif)
+![Loading screen](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/loading.png)
 
 
 ![Unit test coverage](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/test-cases.png)
