@@ -44,9 +44,6 @@ const AlbumPage = ({ albumsData, fetchAlbums, history, match, loading, error }) 
 		});
 	}
 	switch(true) {
-		case (loading === true):
-			return <Loader />;
-
 		case (error && error !== ''):
 			return <Error error={error} />;
 

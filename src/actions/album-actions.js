@@ -6,20 +6,21 @@ import {
 import { ServiceAPI } from './Services';
 import { fetchUsers } from './user-actions';
 
-const fetchAlbumsSuccess = (albums) => {
+//exported only for unit tests
+export const fetchAlbumsSuccess = (albums) => {
     return {
         type: GET_ALBUMS_SUCCESS,
         albums
     }
 };
-
-const fetchAlbumsLoading = () => {
+//exported only for unit tests
+export const fetchAlbumsLoading = () => {
     return {
         type: GET_ALBUMS_LOADING
     }
 };
-
-const fetchAlbumsError = (error) => {
+//exported only for unit tests
+export const fetchAlbumsError = (error) => {
     return {
         type: GET_ALBUMS_ERROR,
         error

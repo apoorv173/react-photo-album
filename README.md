@@ -1,3 +1,5 @@
+
+# React photo album
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -17,8 +19,8 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm test -- --coverage`
-Gives the coverage report of the test cases.
+### `yarn test --coverage --watchAll`
+Gives the coverage report of the test cases, and simultaneously watch on changes.
 
 ### `npm run build`
 
@@ -71,4 +73,57 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 
-![Loading image](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/loading.png)
+
+### Run through Docker
+
+If you want to run the application through `docker` then follow the below steps.
+
+Go to the terminal and move the the project root folder.
+
+#### Build docker image
+#### `docker build --tag=photo-album1 .`
+
+#### Build docker image
+#### `docker run -d -p 3000:3000 photo-album1`
+
+Then, Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##What we are looking for 
+
+###browser back button functionality  Back button mainly needs to be handled when 
+a.)we change the page of the album or the photo
+b.) when the size of the album or photos is changed, then the page count should also reset.
+
+Back button is handled for all the scenarios, except when the user clicks on the photo to open the 
+
+###readable and tested code  Unit tests are included for most of the code and is divided into different files and folders, like components, assets, reducers, scss to increase readability.
+
+###coding not just the "happy path" but also handling missing data, network issues, ...  handled the network error scenario and when no data exists(refer to the screenshot)
+
+###a performant solution (amount of requests & bytes, compression, render-blocking Js,  lazy load...)  Suspense and lazy methods provided by react@16.2 are used to lazy load the album list and photo list component.
+
+###mobile first approach  
+###clean and responsive layout  
+###usage of a VCS and an informative commit history  Shared the path of the GIT repo.
+
+###to run the project via docker  Docker file included, with instructions to run the docker image.
+
+###documentation 
+Documentation is all included in the readme files with screenshot of the app.
+
+
+
+![Album list without hover effect](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/album-list-without-data.png)
+![Album list with user and album data on hover](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/album-list-with-data.png)
+![Album list on mobile without hover effect](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/album-list-mobile-without-data.png)
+![Album list on mobile with hover effect](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/album-list-mobile.png)
+
+![no result found page](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/no-result-found.png)
+![Photo list](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/photo-list.png)
+![modal design on desktop](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/modal-desktop.png)
+![Modal design on mobile](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/modal-mobile.png)
+
+![Loading png](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/loading.png)
+![Loading gif](https://github.com/apoorv173/react-photo-album/tree/master/src/assets/loader.gif)
+
+
+![Unit test coverage](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/test-cases.png)

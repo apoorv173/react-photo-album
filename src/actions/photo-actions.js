@@ -7,20 +7,23 @@ import {
 import { ServiceAPI } from './Services';
 import { fetchSingleAlbum } from './album-actions';
 
-const fetchPhotosSuccess = (photos) => {
+//exported only for unit tests
+export const fetchPhotosSuccess = (photos) => {
     return {
         type: GET_PHOTOS_SUCCESS,
         photos
     }
 };
 
-const fetchPhotosLoading = () => {
+//exported only for unit tests
+export const fetchPhotosLoading = () => {
     return {
         type: GET_PHOTOS_LOADING
     }
 };
 
-const fetchPhotosError = (error) => {
+//exported only for unit tests
+export const fetchPhotosError = (error) => {
     return {
         type: GET_PHOTOS_ERROR,
         error
