@@ -41,7 +41,7 @@ describe('Album Action', () => {
         expect(fetchAlbumsLoading()).toEqual(expectedAction);
     });
 
-    fit('creates GET_ALBUMS_SUCCESS when fetching albums is done', () => {
+    it('creates GET_ALBUMS_SUCCESS when fetching albums is done', () => {
         const expectedActions = [
           {type: GET_ALBUMS_LOADING},
           { type: GET_ALBUMS_SUCCESS, albums },

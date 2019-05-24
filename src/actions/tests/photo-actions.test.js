@@ -42,7 +42,7 @@ describe('Photo Action', () => {
         expect(fetchPhotosLoading()).toEqual(expectedAction);
     });
 
-    fit('creates GET_PHOTOS_SUCCESS when fetching albums is done', () => {
+    it('creates GET_PHOTOS_SUCCESS when fetching albums is done', () => {
         const expectedActions = [
           {type: GET_ALBUMS_LOADING},
           {type: GET_PHOTOS_LOADING},
