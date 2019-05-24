@@ -13,6 +13,7 @@ describe("Data table  comnponent", () => {
             ></DataTable>)
         expect(tree).toMatchSnapshot();
     });
+    
 
     it('should render all the components isnide the data table component', () => {
         const wrapper = mount(<DataTable 

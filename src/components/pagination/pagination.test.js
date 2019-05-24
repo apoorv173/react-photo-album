@@ -8,6 +8,7 @@ describe("Pagination comnponent", () => {
     const onNextClick = jest.fn();
     it("Should render the Pagination with both the buttons enabled", () => {
         const tree = shallow(<Pagination onPrevClick={onPrevClick} onNextClick={onNextClick} ></Pagination>)
+        
         expect(tree).toMatchSnapshot();
     });
 

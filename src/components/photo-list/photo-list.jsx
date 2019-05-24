@@ -1,9 +1,16 @@
 import React from "react";
 
 const PhotoList = ({photos, onPhotoClick}) => {
-    
+    const photoCount = photos.length;
+    if(photoCount === 0) {
+        return (
+            <h3>No results found</h3>
+        );
+    }
     return (
         <div className="row">
+            <h1>{photos[0].albumTitle}</h1>
+            <h2>By  {photos[0].username}</h2>
             {photos.map((photo) => {
                 return (
                     <div 

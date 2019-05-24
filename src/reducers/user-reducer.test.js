@@ -13,6 +13,7 @@ describe("User Reducer", () => {
     it("should return the initial state", () => {
         expect(UserReducer(undefined, {})).toEqual(initialState)
     });
+    
     it("should handle fetch user success", () => {
         const modifiedUserData = {users: {
             "1": {
@@ -30,7 +31,7 @@ describe("User Reducer", () => {
                     "lng": "81.1496"
                   }
                 },
-                "color": "#1fb91f",
+                "color": "1fb91f",
                 "userId": 1,
                 "phone": "1-770-736-8031 x56442",
                 "website": "hildegard.org",

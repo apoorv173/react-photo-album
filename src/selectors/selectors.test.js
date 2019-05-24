@@ -120,13 +120,12 @@ import photoResponse from '../data/photo-response.json';
 
   describe('Selectors', () => {
     describe('Album selector', () => {
-      it('should return ', () => {
+      it('should return the modifie data with the users info', () => {
         expect(getAlbumDetails(albumResponse)).toStrictEqual(modifiedAlbumData);
       });
     });
-
     describe('Photo selector', () => {
-        it('should return ', () => {
+        it('should return all the photo details with the albums and users info', () => {
           expect(getPhotoDetails(photoResponse)).toStrictEqual(modifiedPhotoData);
         });
       });

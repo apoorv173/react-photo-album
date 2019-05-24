@@ -15,6 +15,7 @@ describe("Album List Component", () => {
         expect(tree).toMatchSnapshot();
     });
 
+    
     it('should render all the components', () => {
         const wrapper = mount(<MemoryRouter><AlbumList albums={albums} /></MemoryRouter>);
         expect(wrapper.find(Link).length).toBe(2);

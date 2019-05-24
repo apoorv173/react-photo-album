@@ -2,7 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AlbumList = ({albums}) => {
-    
+    const albumCount = albums.length;
+    if(albumCount === 0) {
+        return (
+            <h3>No results found</h3>
+        );
+    }
     return (
         <div className="row">
             {albums.map((album) => {

@@ -19,8 +19,8 @@ import { GET_PHOTOS_SUCCESS,
 
 const initialState = {
     photos: [],
-    loading: false,
-    error: {},
+    loading: true,
+    error: '',
 };
 
 describe("Photo Reducer", () => {
@@ -45,14 +45,14 @@ describe("Photo Reducer", () => {
               "thumbnailUrl": "/111"
             }
           ];
-        expect(PhotoReducer(undefined, {type: GET_PHOTOS_SUCCESS, photos: Photos})).toEqual({...initialState, photos: modifiedPhotoData})
+        expect(PhotoReducer(undefined, {type: GET_PHOTOS_SUCCESS, photos: Photos})).toEqual({...initialState, photos: modifiedPhotoData, loading: false})
     });
 
     it("should handle fetch Photo loading", () => {
-        expect(PhotoReducer(undefined, {type: GET_PHOTOS_LOADING, loading: true})).toEqual({...initialState, loading: true})
+        expect(PhotoReducer(undefined, {type: GET_PHOTOS_LOADING})).toEqual({...initialState, loading: true, error: ''})
     });
 
     it("should handle fetch Photo error", () => {
-        expect(PhotoReducer(undefined, {type: GET_PHOTOS_ERROR, error: true})).toEqual({...initialState, error: true})
+        expect(PhotoReducer(undefined, {type: GET_PHOTOS_ERROR, error: 'sd'})).toEqual({...initialState, error: 'sd', loading: false})
     });
 });

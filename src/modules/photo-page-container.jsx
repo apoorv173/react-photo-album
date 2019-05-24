@@ -2,24 +2,24 @@ import React, { Fragment, Suspense, useState, useEffect, lazy } from "react";
 import {connect} from "react-redux";
 import queryString from 'query-string';
 import { fetchPhotos } from "../actions/photo-actions";
-import { ModalWindow, Loader } from "../components/";
+import { ModalWindow, Loader, Error } from "../components/";
 import { getPhotoDetails } from '../selectors/selectors';
 
 const PhotoList = lazy(() => import("../components/photo-list/photo-list"));
 const DataTable = lazy(() => import("../components/data-table/data-table"));
 const Pagination = lazy(() => import("../components/pagination/pagination"));
 
-const PhotoPage = ({history, page, match, fetchAllPhotos, album, photosData }) =>  {
+const PhotoPage = ({history, page, match, fetchAllPhotos, album, photosData, loading, error }) =>  {
     
     const [ show, setShow ] = useState(false);
     const [ modalData, setModalData ] = useState({});
 
     const getQueryParams = queryString.parse(history.location.search);
-    const getSizeFromURL = parseInt(getQueryParams["size"]) || 20;
-    const getPageFromURL = parseInt(getQueryParams["page"]) || 1;
+    const getSizeFromURL = parseInt(getQueryParams["size"], 10) || 20;
+    const getPageFromURL = parseInt(getQueryParams["page"], 10) || 1;
 
-    const photoCount = parseInt(photosData ? photosData.length : 0);
-    const albumId = parseInt(match.params.albumId);
+    const photoCount = parseInt((photosData ? photosData.length : 0), 10);
+    const albumId = parseInt(match.params.albumId, 10);
     
     useEffect(() => {
         fetchAllPhotos(albumId, getPageFromURL, getSizeFromURL);
@@ -86,42 +86,46 @@ const PhotoPage = ({history, page, match, fetchAllPhotos, album, photosData }) =
 			</ModalWindow>
 		);
     }
-    console.log(photosData);
-    if(photosData && photosData.length) {
-        return (
-            <Suspense fallback={<Loader />} >
-                <h1>{photosData[0].albumTitle}</h1>
-                <h2>By  {photosData[0].username}</h2>
+    switch(true) {
+        case (loading === true): 
+            return <Loader />;
 
-                <Pagination 
-					prevDisabled={(getPageFromURL <= 1)}
-					nextDisabled={photoCount < getSizeFromURL}
-					onPrevClick={onPrevClick}
-					onNextClick={onNextClick}
-				/>
-                <DataTable
-                    rowCount={getSizeFromURL}
-                    onCountChange={onCountChange}
-                />
-                <PhotoList 
-                    album={album}       
-                    photos={photosData}
-                    page={page}
-                    onPhotoClick={onPhotoClick}
-                />
-                {(show && modalData) && renderModalWindow()}
+        case (error && error !== ''):
+            return <Error error={error} />;
 
-            </Suspense>
-        )
-    }
-    else {
-        return <Loader />;
+        case (photosData && photosData.length >= 0 ):
+            return (
+                <Suspense fallback={<Loader />} >
+                    <Pagination 
+                        prevDisabled={(getPageFromURL <= 1)}
+                        nextDisabled={photoCount < getSizeFromURL}
+                        onPrevClick={onPrevClick}
+                        onNextClick={onNextClick}
+                    />
+                    <DataTable
+                        rowCount={getSizeFromURL}
+                        onCountChange={onCountChange}
+                    />
+                    <PhotoList 
+                        album={album}       
+                        photos={photosData}
+                        page={page}
+                        onPhotoClick={onPhotoClick}
+                    />
+                    {(show && modalData) && renderModalWindow()}
+
+                </Suspense>
+            )
+            default: 
+                return null;
     }
 }
 
 const mapStateToProps = state => {
     return {
         photosData: getPhotoDetails(state),
+        error: state.photos.error,
+        loading: state.photos.loading
         
     }
 };

@@ -19,8 +19,8 @@ import { GET_ALBUMS_SUCCESS,
 
 const initialState = {
     albums: [],
-    loading: false,
-    error: {},
+    loading: true,
+    error: '',
 };
 
 describe("Albums Reducer", () => {
@@ -41,14 +41,14 @@ describe("Albums Reducer", () => {
               "userId": 1
             }
           ]
-        expect(AlbumReducer(undefined, {type: GET_ALBUMS_SUCCESS, albums: ALBUMS})).toEqual({...initialState, albums: modifiedAlbumData})
+        expect(AlbumReducer(undefined, {type: GET_ALBUMS_SUCCESS, albums: ALBUMS})).toEqual({...initialState, albums: modifiedAlbumData, loading: false})
     });
 
     it("should handle fetch albums loading", () => {
-        expect(AlbumReducer(undefined, {type: GET_ALBUMS_LOADING, loading: true})).toEqual({...initialState, loading: true})
+        expect(AlbumReducer(undefined, {type: GET_ALBUMS_LOADING, loading: true})).toEqual({...initialState, loading: true, error: ''})
     });
 
     it("should handle fetch albums error", () => {
-        expect(AlbumReducer(undefined, {type: GET_ALBUMS_ERROR, error: true})).toEqual({...initialState, error: true})
+        expect(AlbumReducer(undefined, {type: GET_ALBUMS_ERROR, error: 'sd'})).toEqual({...initialState, error: 'sd', loading: false})
     });
 });

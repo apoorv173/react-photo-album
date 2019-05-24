@@ -13,10 +13,9 @@ const fetchAlbumsSuccess = (albums) => {
     }
 };
 
-const fetchAlbumsLoading = (flag) => {
+const fetchAlbumsLoading = () => {
     return {
-        type: GET_ALBUMS_LOADING,
-        flag
+        type: GET_ALBUMS_LOADING
     }
 };
 
@@ -29,18 +28,16 @@ const fetchAlbumsError = (error) => {
 
 export const fetchAllAlbums = (page, limit = PAGE_COUNT) => {
     return dispatch => {
-        dispatch(fetchAlbumsLoading(true));
+        dispatch(fetchAlbumsLoading());
         const start = (page - 1) * limit;
         const url = `/albums?_start=${start}&_limit=${limit}`;
 
         const handleSuccess = (data) => {
             dispatch(fetchAlbumsSuccess(data));
             dispatch(fetchUsers(data));
-            dispatch(fetchAlbumsLoading(true));
         };
         const handleError = (error) => {
             dispatch(fetchAlbumsError(error));
-            dispatch(fetchAlbumsLoading(false));
         }
         ServiceAPI.get(url, handleSuccess, handleError);
     }
@@ -48,17 +45,15 @@ export const fetchAllAlbums = (page, limit = PAGE_COUNT) => {
 
 export const fetchSingleAlbum = (albumId) => {
     return dispatch => {
-        dispatch(fetchAlbumsLoading(true));
+        dispatch(fetchAlbumsLoading());
         const url = `/albums/${albumId}`;
 
         const handleSuccess = (data) => {
             dispatch(fetchAlbumsSuccess(data));
             dispatch(fetchUsers(data));
-            dispatch(fetchAlbumsLoading(false));
         };
         const handleError = (error) => {
             dispatch(fetchAlbumsError(error));
-            dispatch(fetchAlbumsLoading(false));
         }
         ServiceAPI.get(url, handleSuccess, handleError);
     }
