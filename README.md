@@ -127,7 +127,7 @@ Documentation is all included in the readme files with screenshot of the app.
 
 ![Unit test coverage](https://github.com/apoorv173/react-photo-album/blob/master/screenshots/test-cases.png)
 
-##Manual BDD tests executed:
+### Manual BDD tests executed:
 
 1.) ON size change the page count should reset for that current url
 
@@ -142,8 +142,10 @@ Documentation is all included in the readme files with screenshot of the app.
 6.) Image description
 
 
-##Todos
+### Todos
 
 User page with the complete user information
 
 Add redux sagas to it, instead of thunk
+
+Add library to add support for title change in SPA
