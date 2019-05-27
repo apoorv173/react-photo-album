@@ -10,7 +10,7 @@ const PhotoList = lazy(() => import("../components/photo-list/photo-list"));
 const DataTable = lazy(() => import("../components/data-table/data-table"));
 const Pagination = lazy(() => import("../components/pagination/pagination"));
 
-const PhotoPage = ({history, page, match, fetchAllPhotos, photosData, loading, error }) =>  {
+export const PhotoPage = ({history, page, match, fetchAllPhotos, photosData, loading, error }) =>  {
     
     const [ show, setShow ] = useState(false);
     const [ modalData, setModalData ] = useState({});

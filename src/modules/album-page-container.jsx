@@ -10,7 +10,7 @@ const AlbumList = lazy(() => import("../components/album-list/album-list"));
 const DataTable = lazy(() => import("../components/data-table/data-table"));
 const Pagination = lazy(() => import("../components/pagination/pagination"));
 
-const AlbumPage = ({ albumsData, fetchAlbums, history, match, loading, error }) => {
+export const AlbumPage = ({ albumsData, fetchAlbums, history, match, loading, error }) => {
 
 	const getQueryParams = queryString.parse(history.location.search);
 	const getSizeFromURL = parseInt(getQueryParams["size"], 10) || 20;
@@ -58,7 +58,7 @@ const AlbumPage = ({ albumsData, fetchAlbums, history, match, loading, error }) 
 					<Helmet>
 						<title>All albums</title>
 					</Helmet>
-					<div className="">
+					<div>
 						<h1>All albums</h1>
 						<Suspense fallback={ <Loader />} >
 							<Pagination 

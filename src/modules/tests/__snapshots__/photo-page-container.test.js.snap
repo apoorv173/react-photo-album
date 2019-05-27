@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Album List Component Should render the error component only with its snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Album List Component Should render the loader component only with its snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Album List Component Should return null if albums doesnt exist, and no eror is there 1`] = `ShallowWrapper {}`;
+
+exports[`Photo List Component Should render the error component only with its snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Photo List Component Should render the loader component only with its snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Photo List Component Should return null if albums doesnt exist, and no eror is there 1`] = `ShallowWrapper {}`;

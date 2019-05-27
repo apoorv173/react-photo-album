@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Album List Component Should render the error component only with its snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Album List Component Should render the loader component only with its snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Album List Component Should return null if albums doesnt exist, and no eror is there 1`] = `ShallowWrapper {}`;
+
+exports[`Album List Component rendered lazily 1`] = `
+<div>
+  <h1>
+    All albums
+  </h1>
+  <nav
+    aria-label="Page navigation"
+  >
+    <ul
+      className="pagination"
+    >
+      <li
+        className="left"
+      >
+        <button
+          aria-label="Previous"
+          className="btn btn-primary prev-btn"
+          disabled="disabled"
+          onClick={[Function]}
+        >
+          <span
+            aria-hidden="true"
+          >
+            Previous
+          </span>
+        </button>
+      </li>
+      <li
+        className="right"
+      >
+        <button
+          aria-label="Next"
+          className="btn btn-primary next-btn"
+          disabled="disabled"
+          onClick={[Function]}
+        >
+          <span
+            aria-hidden="true"
+          >
+            Next
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <nav
+    aria-label="Page rows"
+  >
+    <h4
+      className="d-inline-block"
+    >
+      Rows per page: 
+    </h4>
+    <span>
+          
+    </span>
+    <select
+      className="form-control select-wrapper d-inline-block"
+      onChange={[Function]}
+      value={20}
+    >
+      <option
+        value={20}
+      >
+        20
+      </option>
+      <option
+        value={30}
+      >
+        30
+      </option>
+      <option
+        value={50}
+      >
+        50
+      </option>
+    </select>
+  </nav>
+  <div
+    className="row"
+  >
+    <a
+      href="/albums/1/photos"
+      onClick={[Function]}
+    >
+      <div
+        className="thumbnail-wrapper col-xs-12 col-sm-3"
+      >
+        <div
+          className="thumbnail"
+        >
+          <div
+            className="layer"
+          >
+            <h4
+              className="thumbnail-heading"
+            >
+              quidem molestiae enim
+            </h4>
+            <p
+              className="thumbnail-text"
+            >
+               By
+                
+              1
+            </p>
+          </div>
+          <img
+            className="thumbnail-img"
+            src="https://via.placeholder.com/150/fff"
+          />
+        </div>
+      </div>
+    </a>
+    <a
+      href="/albums/2/photos"
+      onClick={[Function]}
+    >
+      <div
+        className="thumbnail-wrapper col-xs-12 col-sm-3"
+      >
+        <div
+          className="thumbnail"
+        >
+          <div
+            className="layer"
+          >
+            <h4
+              className="thumbnail-heading"
+            >
+              sunt qui excepturi placeat culpa
+            </h4>
+            <p
+              className="thumbnail-text"
+            >
+               By
+                
+              1
+            </p>
+          </div>
+          <img
+            className="thumbnail-img"
+            src="https://via.placeholder.com/150/111"
+          />
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+`;
