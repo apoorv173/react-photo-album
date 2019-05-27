@@ -1,6 +1,7 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Fragment, Suspense, lazy, useEffect } from 'react';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
+import Helmet from 'react-helmet';
 import { Loader, Error } from '../components';
 import { fetchAllAlbums } from '../actions/album-actions';
 import { getAlbumDetails } from '../selectors/selectors';
@@ -53,24 +54,29 @@ const AlbumPage = ({ albumsData, fetchAlbums, history, match, loading, error }) 
 
 		case (albumsData && albumsData.length >= 0):
 			return (
-				<div className="">
-					<h1>All albums</h1>
-					<Suspense fallback={ <Loader />} >
-						<Pagination 
-							prevDisabled={(getPageFromURL <= 1)}
-							nextDisabled={albumCount < getSizeFromURL}
-							onPrevClick={onPrevClick}
-							onNextClick={onNextClick}
-						/>
-						<DataTable 
-							rowCount={getSizeFromURL}
-							onCountChange={onCountChange}
-						/>
-						<AlbumList 
-							albums={albumsData}
-						/>
-					</Suspense>
-				</div>
+				<Fragment>
+					<Helmet>
+						<title>All albums</title>
+					</Helmet>
+					<div className="">
+						<h1>All albums</h1>
+						<Suspense fallback={ <Loader />} >
+							<Pagination 
+								prevDisabled={(getPageFromURL <= 1)}
+								nextDisabled={albumCount < getSizeFromURL}
+								onPrevClick={onPrevClick}
+								onNextClick={onNextClick}
+							/>
+							<DataTable 
+								rowCount={getSizeFromURL}
+								onCountChange={onCountChange}
+							/>
+							<AlbumList 
+								albums={albumsData}
+							/>
+						</Suspense>
+					</div>
+				</Fragment>
 			);
 		default: 
 			return null;

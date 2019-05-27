@@ -7,6 +7,8 @@ import { GET_USERS_SUCCESS,
 
 const initialState = {
     users: {},
+    error: '',
+    loading: true
 };
 
 describe("User Reducer", () => {
@@ -41,7 +43,9 @@ describe("User Reducer", () => {
                   "bs": "harness real-time e-markets"
                 }
             }
-            }
+            },
+            loading: false,
+            error: ''
         }
         expect(UserReducer(undefined, {type: GET_USERS_SUCCESS, userDetails: Users})).toEqual(modifiedUserData);
     });
@@ -49,6 +53,6 @@ describe("User Reducer", () => {
         expect(UserReducer(undefined, {type: GET_USERS_LOADING, loading: true})).toEqual({...initialState, loading: true})
     });
     it("should handle fetch user error", () => {
-        expect(UserReducer(undefined, {type: GET_USERS_ERROR, error: true})).toEqual({...initialState, error: true})
+        expect(UserReducer(undefined, {type: GET_USERS_ERROR, error: true})).toEqual({...initialState, error: true, loading: false})
     });
 });

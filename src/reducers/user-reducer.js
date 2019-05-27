@@ -4,6 +4,8 @@ import { GET_USERS_SUCCESS,
 
 const initialState = {
     users: {},
+    loading: true,
+    error: ''
 };
 
 //method to convert any string to a 6 digit hex code.
@@ -37,12 +39,12 @@ export default (state = initialState, action) => {
             };
 
             //Storing the users not an array but as a pair of keys/values, key being the userId.
-            return {...state, users: {...state.users, ...userObj}};
+            return {...state, users: {...state.users, ...userObj}, loading: false, error: ''};
 
         case GET_USERS_LOADING:
-            return {...state, loading: action.loading};
+            return {...state, loading: true, error: ''};
         case GET_USERS_ERROR:
-            return {...state, error: action.error};
+            return {...state, error: action.error, loading: false, users: {}};
         default:
             return state;
     }

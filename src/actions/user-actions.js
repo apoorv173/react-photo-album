@@ -10,10 +10,9 @@ const fetchUserDetails = (userDetails) => {
     }
 };
 
-const fetchUserLoading = (flag) => {
+const fetchUserLoading = () => {
     return {
-        type: GET_USERS_LOADING,
-        flag
+        type: GET_USERS_LOADING
     }
 };
 
@@ -37,16 +36,14 @@ export const fetchUsers = (albumData) => {
         else {
             userIdArr = [albumData.userId];
         }
-        dispatch(fetchUserLoading(true));
+        dispatch(fetchUserLoading());
         userIdArr.forEach(function (userId) {
             const url = `/users/${userId}`;
             const handleSuccess = (data) => {
                 dispatch(fetchUserDetails(data));
-                dispatch(fetchUserLoading(false));
             };
             const handleError = (error) => {
                 dispatch(fetchUserError(error));
-                dispatch(fetchUserLoading(false));
             }
             ServiceAPI.get(url, handleSuccess, handleError);
         });

@@ -2,13 +2,14 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
 import albums from "../../data/first-page-album.json";
-import Users from "../../data/users.json";
+import users from "../../data/users.json";
 import fetchMock from 'fetch-mock';
 import {
     GET_ALBUMS_SUCCESS,
     GET_ALBUMS_LOADING,
     GET_ALBUMS_ERROR,
-    GET_USERS_SUCCESS } from '../constants';
+    GET_USERS_SUCCESS,
+    GET_USERS_LOADING } from '../constants';
 
 import { fetchAllAlbums, fetchAlbumsError, fetchAlbumsLoading } from '../album-actions';
 
@@ -43,11 +44,10 @@ describe('Album Action', () => {
 
     it('creates GET_ALBUMS_SUCCESS when fetching albums is done', () => {
         const expectedActions = [
-          {type: GET_ALBUMS_LOADING},
-          { type: GET_ALBUMS_SUCCESS, albums },
-          { type: GET_USERS_SUCCESS, albums }
+            {
+                type: GET_ALBUMS_LOADING
+            }
         ]
-        
         store.dispatch(fetchAllAlbums(1, 20));
         expect(store.getActions()).toEqual(expectedActions);
       });

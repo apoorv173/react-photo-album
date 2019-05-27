@@ -41,6 +41,10 @@ section,
 	display: block;
 }
 
+title {
+	text-transform: capitalize;
+}
+
 b,
 strong {
 	font-weight: bold;

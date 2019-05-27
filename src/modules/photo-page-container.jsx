@@ -1,6 +1,7 @@
 import React, { Fragment, Suspense, useState, useEffect, lazy } from "react";
 import {connect} from "react-redux";
 import queryString from 'query-string';
+import Helmet from 'react-helmet';
 import { fetchPhotos } from "../actions/photo-actions";
 import { ModalWindow, Loader, Error } from "../components/";
 import { getPhotoDetails } from '../selectors/selectors';
@@ -9,7 +10,7 @@ const PhotoList = lazy(() => import("../components/photo-list/photo-list"));
 const DataTable = lazy(() => import("../components/data-table/data-table"));
 const Pagination = lazy(() => import("../components/pagination/pagination"));
 
-const PhotoPage = ({history, page, match, fetchAllPhotos, album, photosData, loading, error }) =>  {
+const PhotoPage = ({history, page, match, fetchAllPhotos, photosData, loading, error }) =>  {
     
     const [ show, setShow ] = useState(false);
     const [ modalData, setModalData ] = useState({});
@@ -96,6 +97,9 @@ const PhotoPage = ({history, page, match, fetchAllPhotos, album, photosData, loa
         case (photosData && photosData.length >= 0 ):
             return (
                 <Suspense fallback={<Loader />} >
+                    <Helmet>
+                        <title>{photosData[0].albumTitle}</title>
+                    </Helmet>
                     <Pagination 
                         prevDisabled={(getPageFromURL <= 1)}
                         nextDisabled={photoCount < getSizeFromURL}
@@ -107,7 +111,6 @@ const PhotoPage = ({history, page, match, fetchAllPhotos, album, photosData, loa
                         onCountChange={onCountChange}
                     />
                     <PhotoList 
-                        album={album}       
                         photos={photosData}
                         page={page}
                         onPhotoClick={onPhotoClick}

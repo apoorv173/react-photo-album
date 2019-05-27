@@ -11,6 +11,7 @@
     "query-string": "^6.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
@@ -43,5 +44,13 @@
   },
   "devDependencies": {
     "fetch-mock": "^7.3.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/**/index.js",
+      "!src/configureStore.js",
+      "!src/serviceWorker.js"
+    ]
   }
 }

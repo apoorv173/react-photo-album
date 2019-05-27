@@ -21,6 +21,10 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `yarn test --coverage --watchAll`
 Gives the coverage report of the test cases, and simultaneously watch on changes.
+Excluded all the files from create react app bolier plate and the index.js files to bootstrap the component and modules.<br>
+src/**/index.js
+src/configureStore.js"
+src/serviceWorker.js
 
 ### `npm run build`
 
@@ -87,27 +91,31 @@ Go to the terminal and move the the project root folder.
 #### `docker run -d -p 3000:3000 photo-album1`
 
 Then, Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-##What we are looking for 
 
-###browser back button functionality  Back button mainly needs to be handled when 
-a.)we change the page of the album or the photo
-b.) when the size of the album or photos is changed, then the page count should also reset.
 
-Back button is handled for all the scenarios, except when the user clicks on the photo to open the 
+## What we are looking for 
 
-###readable and tested code  Unit tests are included for most of the code and is divided into different files and folders, like components, assets, reducers, scss to increase readability.
+### Browser back button functionality  Back button mainly needs to be handled when <br>
+a.)we change the page of the album or the photo<br>
+b.) when the size of the album or photos is changed, then the page count should also reset.<br>
 
-###coding not just the "happy path" but also handling missing data, network issues, ...  handled the network error scenario and when no data exists(refer to the screenshot)
+Back button is handled for all the scenarios, except when the user clicks on the photo to open the <br>
 
-###a performant solution (amount of requests & bytes, compression, render-blocking Js,  lazy load...)  Suspense and lazy methods provided by react@16.2 are used to lazy load the album list and photo list component.
+### Eeadable and tested code  Unit tests are included for most of the code and is divided into different files and folders, like components, assets, reducers, scss to increase readability.
 
-###mobile first approach  
-###clean and responsive layout  
-###usage of a VCS and an informative commit history  Shared the path of the GIT repo.
+### coding not just the "happy path" but also handling missing data, network issues, ...  handled the network error scenario and when no data exists(refer to the screenshot)
 
-###to run the project via docker  Docker file included, with instructions to run the docker image.
+### a performant solution (amount of requests & bytes, compression, render-blocking Js,  lazy load...)  Suspense and lazy methods provided by react@16.2 are used to lazy load the album list and photo list component.
 
-###documentation 
+### mobile first approach  
+
+### clean and responsive layout  
+
+### usage of a VCS and an informative commit history  Shared the path of the GIT repo.
+
+### to run the project via docker  Docker file included, with instructions to run the docker image.
+
+### documentation 
 Documentation is all included in the readme files with screenshot of the app.
 
 
@@ -129,23 +137,27 @@ Documentation is all included in the readme files with screenshot of the app.
 
 ### Manual BDD tests executed:
 
-1.) ON size change the page count should reset for that current url
+1.) ON size change the page count should reset for that current url<br>
 
-2.) the page and the size numbers are appended in the url for both album and photo pages???
+2.) the page and the size numbers are appended in the url for both album and photo pages???<br>
 
-3.) back navigation
+3.) back navigation<br>
 
-4.) no results found after 100 results
+4.) no results found after 100 results<br>
 
-5.) Loading scenarios
+5.) Loading scenarios<br>
 
-6.) Image description
+6.) Image description<br>
 
 
 ### Todos
 
-User page with the complete user information
+User page with the complete user information<br>
 
-Add redux sagas to it, instead of thunk
+Add redux sagas to it, instead of thunk<br>
 
 Add library to add support for title change in SPA
+
+### Title change
+First thought of using react-document-title for modifying the title, as it is created by gaeron(guy who introduced redux).
+But the document title tags are supposed to be wrapped around the whole component, so, switching to a more powerful library with more features, called react-helmet.

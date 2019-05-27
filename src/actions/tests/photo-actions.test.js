@@ -46,8 +46,6 @@ describe('Photo Action', () => {
         const expectedActions = [
           {type: GET_ALBUMS_LOADING},
           {type: GET_PHOTOS_LOADING},
-          { type: GET_PHOTOS_SUCCESS, photos },
-          { type: GET_USERS_SUCCESS, photos }
         ]
         
         store.dispatch(fetchPhotos(1, 1, 20));
