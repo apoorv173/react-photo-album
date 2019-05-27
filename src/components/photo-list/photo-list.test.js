@@ -27,4 +27,11 @@ describe("Photo List Component", () => {
         wrapper.find(".row .thumbnail-wrapper").at(0).simulate("click");
         expect(onPhotoClick).toHaveBeenCalled();
     });
+
+
+    it('should show the no result found message, if no photo exist', () => {
+        const wrapper = mount(<PhotoList photos={[]} onPhotoClick={onPhotoClick} />);
+        expect(wrapper.find('h3').length).toBe(1);
+        expect(wrapper.find('h3').text()).toBe('No results found');
+    });
 });
